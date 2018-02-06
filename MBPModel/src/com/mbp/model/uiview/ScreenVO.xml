@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ScreenVO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  SelectList="ScreenEO.CINEMA_ID, 
+       ScreenEO.SCREEN_NUMBER, 
+       ScreenEO.SHOWTIME, 
+       ScreenEO.MAX_SEAT, 
+       ScreenEO.AVALIABLE_SEAT"
+  FromList="MBP_SCREEN ScreenEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="ScreenEO"
+    Entity="com.mbp.model.entity.ScreenEO"/>
+  <ViewAttribute
+    Name="CinemaId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CinemaId"
+    EntityUsage="ScreenEO"
+    AliasName="CINEMA_ID"/>
+  <ViewAttribute
+    Name="ScreenNumber"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ScreenNumber"
+    EntityUsage="ScreenEO"
+    AliasName="SCREEN_NUMBER"/>
+  <ViewAttribute
+    Name="Showtime"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Showtime"
+    EntityUsage="ScreenEO"
+    AliasName="SHOWTIME"/>
+  <ViewAttribute
+    Name="MaxSeat"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MaxSeat"
+    EntityUsage="ScreenEO"
+    AliasName="MAX_SEAT"/>
+  <ViewAttribute
+    Name="AvaliableSeat"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AvaliableSeat"
+    EntityUsage="ScreenEO"
+    AliasName="AVALIABLE_SEAT"/>
+</ViewObject>

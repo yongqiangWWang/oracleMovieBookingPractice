@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TicketEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="MBP_TICKET"
+  AliasName="TicketEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="TicketId"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="TICKET_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_TICKET"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OwnerId"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="OWNER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_TICKET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MovieId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="MOVIE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_TICKET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ScreenNumber"
+    IsNotNull="true"
+    Precision="3"
+    Scale="0"
+    ColumnName="SCREEN_NUMBER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_TICKET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Showtime"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="SHOWTIME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MBP_TICKET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SeatNedded"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="SEAT_NEDDED"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_TICKET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Price"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="PRICE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_TICKET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrderTime"
+    IsNotNull="true"
+    ColumnName="ORDER_TIME"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="MBP_TICKET">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="MovieList"
+    Association="com.mbp.model.entity.TicketMovieListFkAssoc"
+    AssociationEnd="com.mbp.model.entity.TicketMovieListFkAssoc.MovieList"
+    AssociationOtherEnd="com.mbp.model.entity.TicketMovieListFkAssoc.Ticket"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="MovieUser"
+    Association="com.mbp.model.entity.TicketMovieUserFkAssoc"
+    AssociationEnd="com.mbp.model.entity.TicketMovieUserFkAssoc.MovieUser"
+    AssociationOtherEnd="com.mbp.model.entity.TicketMovieUserFkAssoc.Ticket"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SysC0035947">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035947"/>
+      <Attr Name="_checkCondition" Value='"TICKET_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.TicketEO.TicketId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035948">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035948"/>
+      <Attr Name="_checkCondition" Value='"OWNER_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.TicketEO.OwnerId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035949">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035949"/>
+      <Attr Name="_checkCondition" Value='"MOVIE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.TicketEO.MovieId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035951">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035951"/>
+      <Attr Name="_checkCondition" Value='"SCREEN_NUMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.TicketEO.ScreenNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035952">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035952"/>
+      <Attr Name="_checkCondition" Value='"SHOWTIME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.TicketEO.Showtime"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035953">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035953"/>
+      <Attr Name="_checkCondition" Value='"SEAT_NEDDED" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.TicketEO.SeatNedded"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035954">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035954"/>
+      <Attr Name="_checkCondition" Value='"PRICE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.TicketEO.Price"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035955">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035955"/>
+      <Attr Name="_checkCondition" Value='"ORDER_TIME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.TicketEO.OrderTime"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TicketPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="TICKET_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.TicketEO.TicketId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TicketMovieFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="MOVIES_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="TICKET_MOVIE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.TicketEO.MovieId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TicketMovieUserFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="MOVIE_USER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="TICKET_MOVIE_USER_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.TicketEO.OwnerId"/>
+    </AttrArray>
+  </Key>
+</Entity>

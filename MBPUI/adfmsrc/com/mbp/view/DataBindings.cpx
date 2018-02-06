@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.66.73" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.mbp.view" ClientType="Generic">
+  <pageMap>
+    <page path="/com.mbp/pages/MovieList.jspx"
+          usageId="com_mbp_view_MovieListPageDef"/>
+    <page path="/com.mbp/pages/login.jspx" usageId="com_mbp_view_loginPageDef"/>
+    <page path="/com.mbp/pages/MovieInfo.jspx"
+          usageId="com_mbp_view_MovieInfoPageDef"/>
+    <page path="/com.mbp/pages/Booking.jspx"
+          usageId="com_mbp_view_BookingPageDef"/>
+    <page path="/com.mbp/pages/OrderInfo.jspx"
+          usageId="com_mbp_view_OrderInfoPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_mbp_view_MovieListPageDef"
+          path="com.mbp.pages.MovieListPageDef"/>
+    <page id="com_mbp_view_loginPageDef" path="com.mbp.pages.loginPageDef"/>
+    <page id="com_mbp_view_MovieInfoPageDef"
+          path="com.mbp.pages.MovieInfoPageDef"/>
+    <page id="com_mbp_view_BookingPageDef" path="com.mbp.pages.BookingPageDef"/>
+    <page id="com_mbp_view_OrderInfoPageDef"
+          path="com.mbp.pages.OrderInfoPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="BMPLoginAMDataControl" Package="com.mbp.model.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="BMPLoginAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

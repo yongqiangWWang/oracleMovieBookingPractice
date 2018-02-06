@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="mbpuiBundle" value="#{adfBundle['com.mbp.view.MBPUIBundle']}"/>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:separator id="separator1" inlineStyle="height:50.0px;"/>
+      <af:form id="f1" inlineStyle="padding:30.0px;">
+        <af:panelGroupLayout layout="vertical" id="pgl1">
+          <af:panelHeader text="#{mbpuiBundle.ORDER_INFOR}" id="ph2">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.searchByOwnerNameQuery.queryDescriptor}"
+                      model="#{bindings.searchByOwnerNameQuery.queryModel}"
+                      queryListener="#{bindings.searchByOwnerNameQuery.processQuery}"
+                      queryOperationListener="#{bindings.searchByOwnerNameQuery.processQueryOperation}"
+                      resultComponentId="::resId1">
+              <f:facet name="toolbar">
+                <af:toolbar id="t1">
+                  <af:commandToolbarButton
+                                           text="#{mbpuiBundle.CANCLE_BOOKING}"
+                                           disabled="#{!bindings.Delete.enabled}"
+                                           id="ctb2"
+                                           action="#{loginBean.ctb2_action}"/>
+                  <af:commandToolbarButton actionListener="#{bindings.Commit.execute}"
+                                           text="Commit"
+                                           disabled="#{!bindings.Commit.enabled}"
+                                           id="ctb3" visible="false"/>
+                </af:toolbar>
+              </f:facet>
+            </af:query>
+            <f:facet name="toolbar">
+              <af:toolbar id="t2">
+                <af:commandToolbarButton text="#{mbpuiBundle.BACK}" id="ctb1"
+                                         action="back"/>
+              </af:toolbar>
+            </f:facet>
+            <af:table value="#{bindings.Ticket11.collectionModel}" var="row"
+                      rows="#{bindings.Ticket11.rangeSize}"
+                      emptyText="#{bindings.Ticket11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.Ticket11.rangeSize}"
+                      rowBandingInterval="0" id="resId1" width="878"
+                      columnStretching="last" rowSelection="single"
+                      partialTriggers="::qryId1:ctb2 ::ctb4"
+                      selectedRowKeys="#{bindings.Ticket11.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.Ticket11.collectionModel.makeCurrent}">
+              <af:column sortProperty="#{bindings.Ticket11.hints.TicketId.name}"
+                         sortable="false"
+                         headerText="#{bindings.Ticket11.hints.TicketId.label}"
+                         id="resId1c1">
+                <af:outputText value="#{row.TicketId}" id="ot15">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Ticket11.hints.TicketId.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.Ticket11.hints.FirstName.name}"
+                         sortable="false" headerText="#{mbpuiBundle.OWNER_NAME}"
+                         id="resId1c2">
+                <af:outputText value="#{row.FirstName}" id="ot11"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Ticket11.hints.MovieName.name}"
+                         sortable="false"
+                         headerText="#{bindings.Ticket11.hints.MovieName.label}"
+                         id="resId1c3">
+                <af:outputText value="#{row.MovieName}" id="ot12"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Ticket11.hints.ScreenNumber.name}"
+                         sortable="false"
+                         headerText="#{bindings.Ticket11.hints.ScreenNumber.label}"
+                         id="resId1c4">
+                <af:outputText value="#{row.ScreenNumber}" id="ot10">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Ticket11.hints.ScreenNumber.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.Ticket11.hints.Showtime.name}"
+                         sortable="false"
+                         headerText="#{bindings.Ticket11.hints.Showtime.label}"
+                         id="resId1c5">
+                <af:outputText value="#{row.Showtime}" id="ot16"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.Ticket11.hints.SeatNedded.name}"
+                         sortable="false"
+                         headerText="#{bindings.Ticket11.hints.SeatNedded.label}"
+                         id="resId1c6">
+                <af:outputText value="#{row.SeatNedded}" id="ot9">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Ticket11.hints.SeatNedded.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.Ticket11.hints.Price.name}"
+                         sortable="false"
+                         headerText="#{bindings.Ticket11.hints.Price.label}"
+                         id="resId1c7">
+                <af:outputText value="#{row.Price}" id="ot14">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Ticket11.hints.Price.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.Ticket11.hints.OrderTime.name}"
+                         sortable="false"
+                         headerText="#{bindings.Ticket11.hints.OrderTime.label}"
+                         id="resId1c8">
+                <af:outputText value="#{row.OrderTime}" id="ot13">
+                  <af:convertDateTime pattern="#{bindings.Ticket11.hints.OrderTime.format}"/>
+                </af:outputText>
+              </af:column>
+            </af:table>
+          </af:panelHeader>
+          <f:facet name="separator">
+            <af:separator id="s1"/>
+          </f:facet>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

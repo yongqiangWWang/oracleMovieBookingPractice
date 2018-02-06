@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MovieDetailMovieFkAssoc"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="MovieList"
+    Cardinality="1"
+    Source="true"
+    Owner="com.mbp.model.entity.MovieListEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="MovieList"/>
+      <Attr Name="_foreignKey"
+        Value="com.mbp.model.entity.MovieListEO.MovieListPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieListEO.MovieId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="MovieDetail"
+    Cardinality="-1"
+    Owner="com.mbp.model.entity.MovieDetailEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="MovieDetail"/>
+      <Attr Name="_foreignKey"
+        Value="com.mbp.model.entity.MovieDetailEO.MovieDetailMovieFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.MovieId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

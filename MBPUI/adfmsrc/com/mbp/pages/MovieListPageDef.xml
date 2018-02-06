@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="MovieListPageDef"
+                Package="com.mbp.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MovieList1" RangeSize="25"
+              DataControl="BMPLoginAMDataControl" id="MovieList1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MovieList1Iterator" id="MovieList1">
+      <nodeDefinition DefName="com.mbp.model.uiview.MovieListVO"
+                      Name="MovieList10">
+        <AttrNames>
+          <Item Value="MovieName"/>
+          <Item Value="MovieStar"/>
+          <Item Value="MovieLanguage"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MovieList1Iterator" id="setCurrentRowWithKey"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDType="java.lang.String"
+                 NDValue="#{row.rowKeyStr}"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="error">
+    <page>/com.mbp/pages/error.jspx</page>
+  </view>
+  <view id="login">
+    <page>/com.mbp/pages/login.jspx</page>
+  </view>
+  <view id="MovieList">
+    <page>/com.mbp/pages/MovieList.jspx</page>
+  </view>
+  <view id="MovieInfo">
+    <page>/com.mbp/pages/MovieInfo.jspx</page>
+  </view>
+  <view id="Booking">
+    <page>/com.mbp/pages/Booking.jspx</page>
+  </view>
+  <view id="OrderInfo">
+    <page>/com.mbp/pages/OrderInfo.jspx</page>
+  </view>
+  <control-flow-rule id="__1">
+    <from-activity-id id="__2">login</from-activity-id>
+    <control-flow-case id="__3">
+      <from-outcome id="__5">error</from-outcome>
+      <to-activity-id id="__4">error</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__7">
+      <from-outcome id="__8">success</from-outcome>
+      <to-activity-id id="__6">MovieList</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__13">
+    <from-activity-id id="__14">error</from-activity-id>
+    <control-flow-case id="__16">
+      <from-outcome id="__17">back</from-outcome>
+      <to-activity-id id="__15">login</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__18">
+    <from-activity-id id="__19">MovieList</from-activity-id>
+    <control-flow-case id="__20">
+      <from-outcome id="__22">detail</from-outcome>
+      <to-activity-id id="__21">MovieInfo</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__40">
+      <from-outcome id="__41">view</from-outcome>
+      <to-activity-id id="__39">OrderInfo</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__23">
+    <from-activity-id id="__24">MovieInfo</from-activity-id>
+    <control-flow-case id="__25">
+      <from-outcome id="__27">back</from-outcome>
+      <to-activity-id id="__26">MovieList</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__28">
+      <from-outcome id="__30">book</from-outcome>
+      <to-activity-id id="__29">Booking</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__31">
+    <from-activity-id id="__32">Booking</from-activity-id>
+    <control-flow-case id="__33">
+      <from-outcome id="__35">back</from-outcome>
+      <to-activity-id id="__34">MovieList</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__36">
+      <from-outcome id="__38">view</from-outcome>
+      <to-activity-id id="__37">OrderInfo</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__42">
+    <from-activity-id id="__43">OrderInfo</from-activity-id>
+    <control-flow-case id="__44">
+      <from-outcome id="__46">back</from-outcome>
+      <to-activity-id id="__45">MovieList</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__9">
+    <managed-bean-name id="__12">loginBean</managed-bean-name>
+    <managed-bean-class id="__11">com.mbp.view.LoginBean</managed-bean-class>
+    <managed-bean-scope id="__10">session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__52">
+    <managed-bean-name id="__51">validateTicketBean</managed-bean-name>
+    <managed-bean-class id="__54">com.mbp.view.ValidateTicketBean</managed-bean-class>
+    <managed-bean-scope id="__53">request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

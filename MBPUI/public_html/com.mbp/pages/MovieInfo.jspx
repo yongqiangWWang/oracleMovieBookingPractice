@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="mbpuiBundle" value="#{adfBundle['com.mbp.view.MBPUIBundle']}"/>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view
+          beforePhase="#{loginBean.beforeMovieDetailPageLoad}">
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:separator id="separator2" inlineStyle="height:50px;"/>
+      <af:form id="f1" inlineStyle="padding:30.0px;">
+        <af:panelHeader text="#{mbpuiBundle.ABOUT_THIS_MOVIE}" id="ph1">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t1">
+              <af:commandToolbarButton text="#{mbpuiBundle.BOOK_NOW}" id="ctb1"
+                                       action="#{loginBean.createBookingTicket}"/>
+              <af:commandToolbarButton text="#{mbpuiBundle.BACK}"
+                                       id="commandToolbarButton1"
+                                       action="back"/>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:panelFormLayout id="pfl1"
+                              inlineStyle="font-size:13px; width:500px;">
+            <af:panelLabelAndMessage label="#{bindings.MovieName.hints.label}"
+                                     id="plam1">
+              <af:outputText value="#{bindings.MovieName.inputValue}" id="ot8"
+                             binding="#{loginBean.movieName}"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.MovieStar.hints.label}"
+                                     id="plam2">
+              <af:outputText value="#{bindings.MovieStar.inputValue}" id="ot3">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MovieStar.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.ReleaseTime.hints.label}"
+                                     id="plam10">
+              <af:outputText value="#{bindings.ReleaseTime.inputValue}"
+                             id="ot9"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Genre.hints.label}"
+                                     id="plam5">
+              <af:outputText value="#{bindings.Genre.inputValue}" id="ot10"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.CastMember.hints.label}"
+                                     id="plam7">
+              <af:outputText value="#{bindings.CastMember.inputValue}"
+                             id="ot2"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.RunningTime.hints.label}"
+                                     id="plam6">
+              <af:outputText value="#{bindings.RunningTime.inputValue}"
+                             id="ot6">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.RunningTime.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Director.hints.label}"
+                                     id="plam9">
+              <af:outputText value="#{bindings.Director.inputValue}" id="ot5"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.MovieLanguage.hints.label}"
+                                     id="plam4">
+              <af:outputText value="#{bindings.MovieLanguage.inputValue}"
+                             id="ot4"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.MovieDescription.hints.label}"
+                                     id="plam8">
+              <af:outputText value="#{bindings.MovieDescription.inputValue}"
+                             id="ot1" inlineStyle="width:300px;"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Price.hints.label}"
+                                     id="plam3">
+              <af:outputText value="#{bindings.Price.inputValue}" id="ot7"
+                             binding="#{loginBean.price}">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.Price.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{mbpuiBundle.DISCOUNT_PRICE}"
+                                     id="panelLabelAndMessage1">
+              <af:outputText value="discount price"
+                             id="outputText1"
+                             binding="#{loginBean.discountPrice}">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.Price.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+          <af:separator id="s2" inlineStyle="height:30px;"/>
+          <af:panelHeader text="#{mbpuiBundle.YOUR_PLAN}" id="ph3">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:selectOneChoice value="#{bindings.MovieShowtime2.inputValue}"
+                                label="#{bindings.MovieShowtime2.label}"
+                                required="#{bindings.MovieShowtime2.hints.mandatory}"
+                                shortDesc="#{bindings.MovieShowtime2.hints.tooltip}"
+                                id="soc1" binding="#{loginBean.showTime}"
+                                autoSubmit="true"
+                                valueChangeListener="#{loginBean.selectShowTimeValueChange}">
+              <f:selectItems value="#{bindings.MovieShowtime2.items}" id="si1"/>
+            </af:selectOneChoice>
+            <af:inputNumberSpinbox label="Ticket number needed" id="ins1"
+                                   required="true"
+                                   binding="#{loginBean.ticketNumber}"
+                                   validator="#{loginBean.ticketNumberValidator}"/>
+          </af:panelHeader>
+          <af:separator id="separator1" inlineStyle="height:30px;"/>
+          <af:panelHeader text="#{mbpuiBundle.MOVIE_SHOW_TIME_INFO}" id="ph2"
+                          inlineStyle="font-size:16.0pt;">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:table value="#{bindings.MovieShowtime21.collectionModel}"
+                      var="row" rows="#{bindings.MovieShowtime21.rangeSize}"
+                      emptyText="#{bindings.MovieShowtime21.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.MovieShowtime21.rangeSize}"
+                      rowBandingInterval="0" id="t2" width="550"
+                      inlineStyle="height:137px;" columnStretching="last">
+              <af:column sortProperty="#{bindings.MovieShowtime21.hints.Showtime.name}"
+                         sortable="false"
+                         headerText="#{bindings.MovieShowtime21.hints.Showtime.label}"
+                         id="c3" width="150">
+                <af:outputText value="#{row.Showtime}" id="ot11"/>
+              </af:column>
+              <af:column sortProperty="#{bindings.MovieShowtime21.hints.ScreenNumber.name}"
+                         sortable="false"
+                         headerText="#{bindings.MovieShowtime21.hints.ScreenNumber.label}"
+                         id="c2" width="150">
+                <af:outputText value="#{row.ScreenNumber}" id="ot12">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.MovieShowtime21.hints.ScreenNumber.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="#{bindings.MovieShowtime21.hints.AvaliableSeat.name}"
+                         sortable="false"
+                         headerText="#{bindings.MovieShowtime21.hints.AvaliableSeat.label}"
+                         id="c1">
+                <af:outputText value="#{row.AvaliableSeat}" id="ot13">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.MovieShowtime21.hints.AvaliableSeat.format}"/>
+                </af:outputText>
+              </af:column>
+            </af:table>
+          </af:panelHeader>
+        </af:panelHeader>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

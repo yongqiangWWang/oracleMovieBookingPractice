@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MBPLoginAM"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="MovieDetail1"
+    ViewObjectName="com.mbp.model.uiview.MovieDetailVO"/>
+  <ViewUsage
+    Name="MovieList1"
+    ViewObjectName="com.mbp.model.uiview.MovieListVO"/>
+  <ViewUsage
+    Name="MovieUser1"
+    ViewObjectName="com.mbp.model.uiview.MovieUserVO"/>
+  <ViewUsage
+    Name="MovieDetail2"
+    ViewObjectName="com.mbp.model.uiview.MovieDetailVO"/>
+  <ViewLinkUsage
+    Name="MovieDetailMovieFkLink1"
+    ViewLinkObjectName="com.mbp.model.uiview.MovieDetailMovieFkLink"
+    SrcViewUsageName="com.mbp.model.module.MBPLoginAM.MovieList1"
+    DstViewUsageName="com.mbp.model.module.MBPLoginAM.MovieDetail2"
+    Reversed="false"/>
+</AppModule>

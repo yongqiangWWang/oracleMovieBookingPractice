@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MovieDetailEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="MBP_MOVIE_DETAIL"
+  AliasName="MovieDetailEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="MovieInformationId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="MOVIE_INFORMATION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_MOVIE_DETAIL"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MovieName"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="MOVIE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MBP_MOVIE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MovieStar"
+    Precision="10"
+    Scale="0"
+    ColumnName="MOVIE_STAR"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_MOVIE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ReleaseTime"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="RELEASE_TIME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MBP_MOVIE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Genre"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="GENRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MBP_MOVIE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CastMember"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="CAST_MEMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MBP_MOVIE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RunningTime"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="RUNNING_TIME"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_MOVIE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Director"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="DIRECTOR"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MBP_MOVIE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MovieLanguage"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="MOVIE_LANGUAGE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MBP_MOVIE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MovieDescription"
+    IsNotNull="true"
+    Precision="600"
+    ColumnName="MOVIE_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MBP_MOVIE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="600"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Price"
+    IsNotNull="true"
+    Precision="5"
+    Scale="0"
+    ColumnName="PRICE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_MOVIE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="6"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MovieId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="MOVIE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_MOVIE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="MovieList"
+    Association="com.mbp.model.entity.MovieDetailMovieFkAssoc"
+    AssociationEnd="com.mbp.model.entity.MovieDetailMovieFkAssoc.MovieList"
+    AssociationOtherEnd="com.mbp.model.entity.MovieDetailMovieFkAssoc.MovieDetail"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="MovieDetailPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="MOVIE_DETAIL_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.MovieInformationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035963">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035963"/>
+      <Attr Name="_checkCondition" Value='"MOVIE_INFORMATION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.MovieInformationId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035964">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035964"/>
+      <Attr Name="_checkCondition" Value='"MOVIE_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.MovieName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035965">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035965"/>
+      <Attr Name="_checkCondition" Value='"RELEASE_TIME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.ReleaseTime"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035966">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035966"/>
+      <Attr Name="_checkCondition" Value='"GENRE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.Genre"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035967">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035967"/>
+      <Attr Name="_checkCondition" Value='"CAST_MEMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.CastMember"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035968">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035968"/>
+      <Attr Name="_checkCondition" Value='"RUNNING_TIME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.RunningTime"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035969">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035969"/>
+      <Attr Name="_checkCondition" Value='"DIRECTOR" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.Director"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035970">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035970"/>
+      <Attr Name="_checkCondition" Value='"MOVIE_LANGUAGE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.MovieLanguage"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035971">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035971"/>
+      <Attr Name="_checkCondition" Value='"MOVIE_DESCRIPTION" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.MovieDescription"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035972">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035972"/>
+      <Attr Name="_checkCondition" Value='"PRICE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.Price"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035973">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035973"/>
+      <Attr Name="_checkCondition" Value='"MOVIE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.MovieId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="MovieDetailMovieFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="MOVIE_LIST_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="MOVIE_DETAIL_MOVIE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieDetailEO.MovieId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MovieListEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="MBP_MOVIE_LIST"
+  AliasName="MovieListEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="MovieId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="MOVIE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_MOVIE_LIST"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MovieName"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="MOVIE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MBP_MOVIE_LIST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MovieStar"
+    Precision="10"
+    Scale="0"
+    ColumnName="MOVIE_STAR"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_MOVIE_LIST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MovieLanguage"
+    Precision="20"
+    ColumnName="MOVIE_LANGUAGE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MBP_MOVIE_LIST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="MovieDetail"
+    Association="com.mbp.model.entity.MovieDetailMovieFkAssoc"
+    AssociationEnd="com.mbp.model.entity.MovieDetailMovieFkAssoc.MovieDetail"
+    AssociationOtherEnd="com.mbp.model.entity.MovieDetailMovieFkAssoc.MovieList"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="MovieShowtime"
+    Association="com.mbp.model.entity.CinemaShowtimeMovieListFkAssoc"
+    AssociationEnd="com.mbp.model.entity.CinemaShowtimeMovieListFkAssoc.MovieShowtime"
+    AssociationOtherEnd="com.mbp.model.entity.CinemaShowtimeMovieListFkAssoc.MovieList"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Ticket"
+    Association="com.mbp.model.entity.TicketMovieListFkAssoc"
+    AssociationEnd="com.mbp.model.entity.TicketMovieListFkAssoc.Ticket"
+    AssociationOtherEnd="com.mbp.model.entity.TicketMovieListFkAssoc.MovieList"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="MovieListPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="MOVIE_LIST_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieListEO.MovieId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035960">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035960"/>
+      <Attr Name="_checkCondition" Value='"MOVIE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieListEO.MovieId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0035961">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0035961"/>
+      <Attr Name="_checkCondition" Value='"MOVIE_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieListEO.MovieName"/>
+    </AttrArray>
+  </Key>
+</Entity>

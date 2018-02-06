@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="MovieInfoPageDef"
+                Package="com.mbp.pages">
+  <parameters>
+    <parameter id="showTime"/>
+  </parameters>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MovieDetail2" RangeSize="25"
+              DataControl="BMPLoginAMDataControl" id="MovieDetail2Iterator"/>
+    <iterator Binds="MovieShowtime2" RangeSize="25"
+              DataControl="BMPLoginAMDataControl" id="MovieShowtime2Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="MovieDetail2Iterator" id="MovieName">
+      <AttrNames>
+        <Item Value="MovieName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MovieDetail2Iterator" id="MovieStar">
+      <AttrNames>
+        <Item Value="MovieStar"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MovieDetail2Iterator" id="ReleaseTime">
+      <AttrNames>
+        <Item Value="ReleaseTime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MovieDetail2Iterator" id="Genre">
+      <AttrNames>
+        <Item Value="Genre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MovieDetail2Iterator" id="CastMember">
+      <AttrNames>
+        <Item Value="CastMember"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MovieDetail2Iterator" id="RunningTime">
+      <AttrNames>
+        <Item Value="RunningTime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MovieDetail2Iterator" id="Director">
+      <AttrNames>
+        <Item Value="Director"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MovieDetail2Iterator" id="MovieLanguage">
+      <AttrNames>
+        <Item Value="MovieLanguage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MovieDetail2Iterator" id="MovieDescription">
+      <AttrNames>
+        <Item Value="MovieDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MovieDetail2Iterator" id="Price">
+      <AttrNames>
+        <Item Value="Price"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="MovieShowtime2Iterator" ListOperMode="navigation"
+          ListIter="MovieShowtime2Iterator" id="MovieShowtime2"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="Showtime"/>
+      </AttrNames>
+    </list>
+    <tree IterBinding="MovieShowtime2Iterator" id="MovieShowtime21">
+      <nodeDefinition DefName="com.mbp.model.uiview.MovieShowtimeVO"
+                      Name="MovieShowtime210">
+        <AttrNames>
+          <Item Value="Showtime"/>
+          <Item Value="ScreenNumber"/>
+          <Item Value="AvaliableSeat"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="calDiscountPrice"
+                  InstanceName="BMPLoginAMDataControl.dataProvider"
+                  DataControl="BMPLoginAMDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="calDiscountPrice"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.BMPLoginAMDataControl.methodResults.calDiscountPrice_BMPLoginAMDataControl_dataProvider_calDiscountPrice_result">
+      <NamedData NDName="username" NDType="java.lang.String"/>
+      <NamedData NDName="password" NDType="java.lang.String"/>
+      <NamedData NDName="price" NDType="int"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

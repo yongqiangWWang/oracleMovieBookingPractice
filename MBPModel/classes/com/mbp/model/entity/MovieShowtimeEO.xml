@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MovieShowtimeEO"
+  Version="11.1.1.66.73"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="MBP_MOVIE_SHOWTIME"
+  AliasName="MovieShowtimeEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="MovieId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="MOVIE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_MOVIE_SHOWTIME"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Showtime"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="SHOWTIME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MBP_MOVIE_SHOWTIME"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ScreenNumber"
+    IsNotNull="true"
+    Precision="3"
+    Scale="0"
+    ColumnName="SCREEN_NUMBER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_MOVIE_SHOWTIME">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AvaliableSeat"
+    IsNotNull="true"
+    ColumnName="AVALIABLE_SEAT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_MOVIE_SHOWTIME">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MaxSeat"
+    IsNotNull="true"
+    ColumnName="MAX_SEAT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MBP_MOVIE_SHOWTIME">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="MovieList"
+    Association="com.mbp.model.entity.CinemaShowtimeMovieListFkAssoc"
+    AssociationEnd="com.mbp.model.entity.CinemaShowtimeMovieListFkAssoc.MovieList"
+    AssociationOtherEnd="com.mbp.model.entity.CinemaShowtimeMovieListFkAssoc.MovieShowtime"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="MbpMovieShowtimePk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="MBP_MOVIE_SHOWTIME_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieShowtimeEO.MovieId"/>
+      <Item Value="com.mbp.model.entity.MovieShowtimeEO.Showtime"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036002">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036002"/>
+      <Attr Name="_checkCondition" Value='"MOVIE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieShowtimeEO.MovieId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036003">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036003"/>
+      <Attr Name="_checkCondition" Value='"SHOWTIME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieShowtimeEO.Showtime"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036004">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036004"/>
+      <Attr Name="_checkCondition" Value='"SCREEN_NUMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieShowtimeEO.ScreenNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CinemaShowtimeMovieListFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="MOVIE_LIST_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CINEMA_SHOWTIME_MOVIE_LIST_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.mbp.model.entity.MovieShowtimeEO.MovieId"/>
+    </AttrArray>
+  </Key>
+</Entity>

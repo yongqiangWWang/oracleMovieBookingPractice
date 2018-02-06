@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.66.73" id="OrderInfoPageDef"
+                Package="com.mbp.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Ticket1" RangeSize="25" DataControl="BMPLoginAMDataControl"
+              id="Ticket1Iterator"/>
+    <searchRegion Criteria="searchByOwnerName"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="Ticket1Iterator" id="searchByOwnerNameQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Ticket1Iterator" id="Ticket11">
+      <nodeDefinition DefName="com.mbp.model.uiview.TicketVO" Name="Ticket110">
+        <AttrNames>
+          <Item Value="TicketId"/>
+          <Item Value="FirstName"/>
+          <Item Value="MovieName"/>
+          <Item Value="ScreenNumber"/>
+          <Item Value="Showtime"/>
+          <Item Value="SeatNedded"/>
+          <Item Value="Price"/>
+          <Item Value="OrderTime"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Ticket1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="BMPLoginAMDataControl"/>
+    <tree IterBinding="Ticket1Iterator" id="Ticket1">
+      <nodeDefinition DefName="com.mbp.model.uiview.TicketVO" Name="Ticket10">
+        <AttrNames>
+          <Item Value="TicketId"/>
+          <Item Value="MovieId"/>
+          <Item Value="OrderTime"/>
+          <Item Value="OwnerId"/>
+          <Item Value="Price"/>
+          <Item Value="ScreenNumber"/>
+          <Item Value="SeatNedded"/>
+          <Item Value="Showtime"/>
+          <Item Value="MovieId1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

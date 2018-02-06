@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="mbpuiBundle" value="#{adfBundle['com.mbp.view.MBPUIBundle']}"/>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1" startWidth="33%" endWidth="33%"
+                                   topHeight="33%" bottomHeight="33%">
+              <f:facet name="center">
+                <af:panelGroupLayout id="pgl1" layout="vertical"
+                                     halign="center">
+                  <af:panelFormLayout id="pflLogin" rows="2" maxColumns="1">
+                    <af:inputText label="#{mbpuiBundle.USERNAME}" id="it1"
+                              binding="#{loginBean.username}"
+                                  inlineStyle="font-size:20pt; font-weight:bold;"/>
+                    <af:inputText id="it2"
+                              binding="#{loginBean.passward}" secret="true"
+                                  inlineStyle="font-size:20.0pt; font-weight:bold;"
+                                  label="#{mbpuiBundle.PASSWORD_}"/>
+                    <af:spacer width="10" height="10" id="s1"/>
+                    <af:commandButton text="Login" id="cb1"
+                                  action="#{loginBean.loginAction}"/>
+                  </af:panelFormLayout>
+                </af:panelGroupLayout>
+              </f:facet>
+              <f:facet name="bottom">
+                <af:panelGroupLayout id="pgl2"/>
+              </f:facet>
+              <f:facet name="top">
+                <af:panelGroupLayout id="pgl3"/>
+              </f:facet>
+            </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
